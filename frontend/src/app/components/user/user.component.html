@@ -1,0 +1,17 @@
+<div class="avatar avatar-{{iconSize || 'xs'}} {{centered ? 'd-flex justify-content-center' : ''}}">
+    <ng-template [ngIf]="userData === null" [ngIfElse]="loaded">
+        <!--
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        -->
+        {{userID}}
+    </ng-template>
+
+    <ng-template #loaded>
+        <img *ngIf="userData.avatar" class="avatar-icon"
+            alt="{{userData.organisation}}/{{userData.name}}"/>
+        <div *ngIf="!userData.avatar" class="avatar-icon">{{initials}}</div>
+        <span *ngIf="!iconOnly" class="avatar-name">{{userData.organisation}}/{{userData.name}}</span>
+    </ng-template>
+</div>

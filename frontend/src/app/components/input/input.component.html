@@ -1,0 +1,17 @@
+<div [class]="inline ? 'd-inline-flex w-100' : 'd-block'">
+    <label [for]="id" class="form-label"
+        [class]="inline ? 'd-flex align-items-center mb-0 input-group-text' : ''">{{label}}</label>
+
+    <div *ngIf="type == 'switch'">
+        <div class="form-check form-switch">
+            <input [id]="id" class="form-check-input custom-switch" type="checkbox" [disabled]="disabled" [(ngModel)]="value">
+        </div>
+    </div>
+    
+    <select *ngIf="type == 'select'" [id]="id" class="form-select"  [disabled]="disabled" [(ngModel)]="value">
+        <ng-content></ng-content>
+    </select>
+
+    <input *ngIf="type == 'text' || type == 'password'" [id]="id" class="form-control" [type]="type" [placeholder]="placeholder"
+        [disabled]="disabled" [(ngModel)]="value" autocomplete="off">
+</div>

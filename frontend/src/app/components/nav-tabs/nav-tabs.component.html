@@ -1,0 +1,14 @@
+<header class="nav-tabs-custom text-default">
+    <ul class="nav-tabs content-tabset justify-content-start nav">
+        <li *ngFor="let tab of tabsInfo" class="nav-item" role="presentation">
+            <a [routerLink]="['../' + tab.link]" [routerLinkActive]="['active']"
+                role="tab" class="nav-link">
+                <i [class]="tab.icon"></i>
+                {{tab.text}}
+            </a>
+        </li>
+    </ul>
+</header>
+<div class="bg-white p-4">
+    <ng-content></ng-content>
+</div>

@@ -1,0 +1,5 @@
+<button class="btn btn-sm" [class]="status ? 'btn-primary' : 'btn-outline-primary'"
+    (click)="toggle()">
+    <span class="me-1" *ngIf="icon"><i class="fa" [class]="icon"></i></span>
+    {{text}}
+</button>

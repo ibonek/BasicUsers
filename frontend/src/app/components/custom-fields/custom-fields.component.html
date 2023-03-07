@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap">
+    <span class="me-1 text-muted" *ngIf="icon"><i class="fa fa-code"></i></span>
+
+    <strong class="text-muted me-1" *ngIf="!customFields || customFields.length === 0 ">Ninguno</strong>
+
+    <span class="kv-label mb-1 me-1 pointer"
+        *ngFor="let cf of customFields"
+        (click)="fieldClicked('customFields.' + cf.name, cf.value)">
+        <span class="kv-label-key default">{{cf.name}}</span>
+        <span class="kv-label-val value default">{{cf | customFieldValue}}</span>
+    </span>
+</div>

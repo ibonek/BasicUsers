@@ -1,0 +1,12 @@
+flask
+flask-migrate
+flask_restful
+Flask-SQLAlchemy
+flask_cors
+mysqlclient
+bcrypt
+flask-jwt-extended
+python-dateutil
+requests
+urllib3
+gunicorn

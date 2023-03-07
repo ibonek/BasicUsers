@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: db
+    build:
+      context: ./database
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DATABASE_ROOT_PASSWORD}
+    volumes:
+      - ./database/data:/var/lib/mysql
+
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    restart: unless-stopped
+    volumes:
+      - ./api:/api
+    ports:
+      - 5000:5000
+    environment:
+      - APP_DEBUG=true
+      - DATABASE_URI=mysql://${DATABASE_USER}:${DATABASE_PASSWORD}@database:3306/${DATABASE_NAME}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - TEAMS_WEBHOOK=${TEAMS_WEBHOOK}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHATID=${TELEGRAM_CHATID}
+
+#  frontend:
+#    container_name: frontend
+#    build:
+#      context: ./frontend
+#      dockerfile: Dockerfile
+#    volumes:
+#      - ./frontend:/app
+#    ports:
+#      - 4200:4200

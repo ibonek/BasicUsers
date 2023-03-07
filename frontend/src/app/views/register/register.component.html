@@ -1,0 +1,25 @@
+<div class="login-box">
+    <div class="login-logo">
+        <img src="../../../assets/images/logo.white.png" height="90"/>
+    </div>
+    <div class="login-box-body">
+        <p class="login-box-msg">Registro de usuario</p>
+        <form [formGroup]="regFrom">
+            <div class="input-group mb-1">
+                 <input type="text" class="form-control" placeholder="Login" formControlName="login" autocomplete="off" required>
+                 <i class="form-control-feedback glyphicon glyphicon-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" class="input form-control" placeholder="Contraseña" formControlName="password" autocomplete="off" required>
+                <i class="form-control-feedback glyphicon glyphicon-lock "></i>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <button type="submit" (click)="newUser(regFrom)" class="btn btn-primary btn-block w-100 button">Crear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

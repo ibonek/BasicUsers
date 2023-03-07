@@ -1,0 +1,44 @@
+<div class="login-box">
+  <div class="login-logo">
+    <img src="../../../assets/images/logo.white.png" height="90"/>
+  </div>
+  <div class="login-box-body">
+    <p class="login-box-msg">Inicio de sesión</p>
+    <form [formGroup]="loginForm">
+      <div class="input-group mb-1">
+        <input type="text" class="form-control" placeholder="Login" formControlName="login" autocomplete="off" required>
+        <i class="form-control-feedback glyphicon glyphicon-user"></i>
+      </div>
+      <div class="input-group">
+        <input type="password" class="input form-control" placeholder="Contraseña" formControlName="password" autocomplete="off" required>
+        <i class="form-control-feedback glyphicon glyphicon-lock "></i>
+      </div>
+      <div class="mt-2" *ngIf="requireMFA">
+        <div class="text-danger text-center">
+          Introduce el código MFA
+        </div>
+        <div class="input-group">
+          <input type="text" class="input form-control" placeholder="Código" formControlName="mfaCode" autocomplete="off" required>
+          <i class="form-control-feedback glyphicon glyphicon-qrcode"></i>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <button type="submit" (click)="login()" class="btn btn-primary btn-block w-100 button" [disabled]="loginForm.invalid">Conectarse</button>
+        </div>
+      </div>
+    </form>
+
+    <hr>
+
+    <div class="row mt-2">
+        <div class="col-12">
+          <button (click)="goToRegister()" class="btn btn-primary btn-block w-100 button" >Registrarse</button>
+        </div>
+      </div>
+  </div>
+
+  <div class="text-center mt-3 text-white">
+      <small>Versión: {{version}}</small>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<nav *ngIf="navService.visible" class="navbar navbar-expand-lg navbar-dark py-1 bg-sofistic">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">
+            <img class="logo" src="../../../assets/images/logo.white.png">
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav text-white">
+
+                <li class="hdivider"></li>
+
+                <li class="nav-item ms-2">
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-text" id="inpIDCaso">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text" class="form-control" style="width: 10rem" placeholder="Introduce empresa" aria-label="ID Caso" aria-describedby="inpIDCaso">
+                          </div>
+                    </form>
+                </li>
+
+
+            </ul>
+            <ul class="navbar-nav align-items-center ms-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="avatar avatar-xs">
+                    <img src="../../../assets/images/favicons/favicon-96x96.png" class="avatar-icon" alt="User">
+                    <span class="avatar-name">{{this.userName}}</span>
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item clickable">Configuración</a></li>
+                  <li><a class="dropdown-item clickable" (click)="logout()">Cerrar sesión</a></li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+    </div>
+</nav>
